@@ -11,7 +11,12 @@ export default function UserRoutes(app) {
   const createUser = (req, res) => { };
   const deleteUser = (req, res) => { };
   const findAllUsers = (req, res) => { };
-  const findUserById = (req, res) => { };
+  
+  const findUserById = (req, res) => {
+    // const userId = req.params.userId;
+    // const data = dao.findUserById(userId);
+    // res.json(data);
+  };
   
   const updateUser = (req, res) => {
     const userId = req.params.userId;
@@ -98,7 +103,7 @@ export default function UserRoutes(app) {
       userId = currentUser._id;
     }
     const role = courseDao.findRoleForUser(userId);
-    // console.log("found role for user " + userId + " :" + role)
+    console.log("found role for user " + userId + " :" + role)
     res.json(role);
   }
   
@@ -113,6 +118,20 @@ export default function UserRoutes(app) {
       userId = currentUser._id;
     }
     res.json(userId);
+  }
+  
+  const findUserData = (req, res) => {
+    let { userId } = req.params;
+    if (userId === "current") {
+      const currentUser = req.session[CURRENT_USER_KEY];
+      if (!currentUser) {
+        res.sendStatus(401);
+        return;
+      }
+      userId = currentUser._id;
+    }
+    const userData = dao.findUserById(userId)
+    res.json(userData);
   }
   
   const createCourse = (req, res) => {
@@ -135,6 +154,8 @@ export default function UserRoutes(app) {
   app.post("/api/users/signin", signin);
   app.post("/api/users/signout", signout);
   app.post("/api/users/profile", profile);
+  
+  app.get("/api/users/:userId/data", findUserData);
   
 }
 

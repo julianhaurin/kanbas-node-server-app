@@ -20,6 +20,7 @@ export function deleteModule(moduleId) {
  export function updateModule(moduleId, moduleUpdates) {
   const { modules } = Database;
   const module = modules.find((module) => module._id === moduleId);
+  if (!moduleUpdates || !module ) { return module }
   Object.assign(module, moduleUpdates);
   return module;
 }

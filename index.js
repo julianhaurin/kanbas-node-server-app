@@ -29,11 +29,11 @@ const sessionOptions = {
 if (process.env.NODE_ENV !== "development") {
   sessionOptions.proxy = true;
   // NOTE: removing this fixed a session error i was having locally (currentUser was undefined after loggin in) *****
-  sessionOptions.cookie = {
-    sameSite: "none",
-    secure: true,
-    domain: process.env.NODE_SERVER_DOMAIN,
-  };
+  // sessionOptions.cookie = {
+  //   sameSite: "none",
+  //   secure: true,
+  //   domain: process.env.NODE_SERVER_DOMAIN,
+  // };
 }
 
 app.use(session(sessionOptions));
