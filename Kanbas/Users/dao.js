@@ -27,6 +27,14 @@ export const findUsersByPartialName = (partialName) => {
   });
 };
 
+// DOESNT WORK: 1:45 12/8
+export const findUserRoleByID = async (userID) => {
+  console.log("UD: ***NEW*** FINDING ROLE FOR USER: " + userID)
+  const userRole = await model.findOne({_id : userID}).select("role")
+  console.log("UD: found user role: " + userRole)
+  return userRole
+}
+
 
 // todo: change this shit *****
 export function findAllCourses() {

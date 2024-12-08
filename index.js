@@ -10,6 +10,7 @@ import "dotenv/config";
 import UserRoutes from "./Kanbas/Users/routes.js";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
+import QuizzesRoutes from "./Kanbas/Quizzes/routes.js";
 import EnrollmentRoutes from './Kanbas/Enrollments/routes.js';
 
 import Hello from "./hello.js"
@@ -49,10 +50,11 @@ app.use(express.json());
 
 UserRoutes(app);
 CourseRoutes(app);
-ModuleRoutes(app)
-EnrollmentRoutes(app)
+ModuleRoutes(app);
+QuizzesRoutes(app);
+EnrollmentRoutes(app);
 
-Hello(app)
+Hello(app);
 Lab5(app);
 
 app.listen(process.env.PORT || 4000)

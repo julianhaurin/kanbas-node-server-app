@@ -18,15 +18,16 @@ export function findCoursesForEnrolledUser(userId) {
   return enrolledCourses;
 }
 
-export function findRoleForUser(userId) {
-  const { users } = Database;
-  const roleIndex = users.findIndex(u => u._id === userId)
+// replace with similar function in user dao
+// export function findRoleForUser(userId) {
+//   const { users } = Database;
+//   const roleIndex = users.findIndex(u => u._id === userId)
   
-  let userRole = ""
-  if (roleIndex != -1) { userRole = users[roleIndex].role }
+//   let userRole = ""
+//   if (roleIndex != -1) { userRole = users[roleIndex].role }
   
-  return userRole;
-}
+//   return userRole;
+// }
 
 // 
 export function createCourse(course) {
