@@ -5,7 +5,7 @@ export default function EnrollmentRoutes(app) {
   
   app.delete("/api/enrollments/:userId/:courseId", async (req, res) => {
     const { userId, courseId } = req.params;
-    const status = await enrollmentsDao.unenrollUserInCourse(userId, courseId);
+    const status = await enrollmentsDao.unenrollUserFromCourse(userId, courseId);
     res.send(status);
   });
  

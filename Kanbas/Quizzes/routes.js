@@ -42,7 +42,7 @@ export default function CourseRoutes(app) {
   
   // DELETE REQUESTS //
   
-  app.delete("/api/quiz/:quizId", async (req, res) => {
+  app.delete("/api/quizzes/:quizId", async (req, res) => {
     const { quizId } = req.params;
     const status = await quizzesDAO.deleteQuiz(quizId);
     res.send(status);

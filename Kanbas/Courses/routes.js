@@ -12,7 +12,7 @@ export default function CourseRoutes(app) {
   });
   
   app.post("/api/courses", async (req, res) => {
-    const course = await dao.createCourse(req.body);
+    const course = await coursesDAO.createCourse(req.body);
       
     // enroll author automatically
     const currentUser = req.session["currentUser"];

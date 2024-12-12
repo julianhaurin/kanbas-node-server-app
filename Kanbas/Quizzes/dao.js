@@ -33,7 +33,7 @@ export function createQuiz(quiz) {
 
 // DELETE FUNCTIONS //
 
-export function deleteQuiz(quiziD) {
-  return model.deleteOne({ _id: quiziD });
+export function deleteQuiz(quizID) {
+  return model.deleteOne({ _id: quizID });
 }
 

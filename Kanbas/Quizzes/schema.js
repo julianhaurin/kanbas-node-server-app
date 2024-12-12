@@ -5,6 +5,7 @@ const quizSchema = new mongoose.Schema(
   {
     course: { type: mongoose.Schema.Types.ObjectId, ref: "CourseModel" },
     name: { type: String, default: "Quiz Name" },
+    description: { type: String, default: "Quiz Description" },
     
     published: { type: Boolean, default: false },
     
@@ -23,7 +24,7 @@ const quizSchema = new mongoose.Schema(
     shuffleAnswers: { type: Boolean, default: true },
     timeLimitMins: { type: Number, default: 20 },
     hasMultipleAttempts: { type: Boolean, default: false },
-    numAttpemts: { type: Number, default: 1 },
+    numAttempts: { type: Number, default: 1 },
     showCorrectAnswers: { type: Boolean, default: false }, // is slightly different, fix *****
     accessCode: { type: String, default: "" },
     oneQuestionAtATime: { type: Boolean, default: true },
@@ -37,9 +38,10 @@ const quizSchema = new mongoose.Schema(
     // Quiz Questions
     questions: [
       {
+        questionID : { type: String, default: "" },
         questionTitle: { type: String, default: "Question Title" },
         questionPoints: { type: Number, default: 0 },
-        questionDescription: { type: String, default: "Question Description "},
+        questionDescription: { type: String, default: "Question Description"},
         
         questionType: {
           type: String,
@@ -49,16 +51,18 @@ const quizSchema = new mongoose.Schema(
         
         mc_choices: [
           {
-            choiceDescription: String
+            choiceDescription: String,
+            choiceID: String,
           }
         ],
         
-        mc_answerIdx: Number,
-        mc_answerID: String, // fix this shit
-        tf_answer: { type: Boolean, default : true},
+        mc_answerIdx: { type: Number, default: 0 },
+        mc_answerID: String, // fix this shit *****
+        tf_answer: { type: Boolean, default : true },
         fitb_answers: [
           {
-            fitbAnswer: String
+            fitbAnswer: String,
+            fitbID: String,
           }
         ]
         

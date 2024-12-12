@@ -11,6 +11,7 @@ import UserRoutes from "./Kanbas/Users/routes.js";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import QuizzesRoutes from "./Kanbas/Quizzes/routes.js";
+import GradeRoutes from './Kanbas/Grades/routes.js';
 import EnrollmentRoutes from './Kanbas/Enrollments/routes.js';
 
 import Hello from "./hello.js"
@@ -52,6 +53,7 @@ UserRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
 QuizzesRoutes(app);
+GradeRoutes(app);
 EnrollmentRoutes(app);
 
 Hello(app);
