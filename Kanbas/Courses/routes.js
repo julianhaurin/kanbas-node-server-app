@@ -70,6 +70,14 @@ export default function CourseRoutes(app) {
     const newModule = await assignmentsDAO.createAssignment(assignment);
     res.send(newModule);
   });
+  
+  
+  const findUsersForCourse = async (req, res) => {
+    const { cid } = req.params;
+    const users = await enrollmentsDAO.findUsersForCourse(cid);
+    res.json(users);
+  };
+  app.get("/api/courses/:cid/users", findUsersForCourse);
 
   
   
